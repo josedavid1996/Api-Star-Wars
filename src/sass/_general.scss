@@ -1,0 +1,46 @@
+a {
+  font-size: 1.125rem;
+  line-height: 1.875rem;
+  font-weight: 400;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  color: $color-white;
+}
+body {
+  position: relative;
+  font-family: $font;
+  font-size: 1rem;
+  margin: 0;
+  overflow-x: hidden;
+  background-color: $bg-primary;
+  color: $color-white;
+}
+h1 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  padding: 2rem 0;
+  padding-left: 0.625rem;
+  margin: 0;
+}
+li {
+  list-style: none;
+}
+p {
+  font-size: 1rem;
+  font-weight: 400;
+  padding: 0.75rem 0.3125rem 0.3125rem;
+  margin: 0;
+  margin-bottom: 1.375rem;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+figure {
+  margin: 0;
+}
+@media screen and (min-width: 37.5rem) {
+  h1 {
+    font-size: 2.1rem;
+  }
+}
