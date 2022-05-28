@@ -1,6 +1,11 @@
 import React from 'react'
 
-export const Person = ({ fetchData, nextPagination, previPagination }) => {
+export const Person = ({
+  fetchData,
+  nextPagination,
+  previPagination,
+  getValueModal
+}) => {
   return (
     <div className="seccion__table ">
       <h1>People</h1>
@@ -12,6 +17,7 @@ export const Person = ({ fetchData, nextPagination, previPagination }) => {
             <th>Mass</th>
             <th>Hair color</th>
             <th>Birth year</th>
+            <th>Mas info</th>
           </tr>
         </thead>
         <tbody>
@@ -19,12 +25,20 @@ export const Person = ({ fetchData, nextPagination, previPagination }) => {
             fetchData.map((person) => {
               return (
                 <>
-                  <tr className="contenido__tabla">
+                  <tr className="contenido__tabla" key={person.name}>
                     <td>{person.name}</td>
                     <td>{person.height}</td>
                     <td>{person.mass}</td>
                     <td>{person.hair_color}</td>
                     <td>{person.birth_year}</td>
+                    <td>
+                      <i
+                        key={person.name}
+                        id={person.name}
+                        onClick={getValueModal}
+                        className="fa-solid fa-plus"
+                      ></i>
+                    </td>
                   </tr>
                 </>
               )

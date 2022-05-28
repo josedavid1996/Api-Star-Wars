@@ -15,9 +15,7 @@ export const Header = () => {
   }
 
   const onValueChange = (e) => {
-    if (searchValue.length === 0) {
-      setSearchValue(e.target.value)
-    }
+    setSearchValue(e.target.value)
   }
 
   return (

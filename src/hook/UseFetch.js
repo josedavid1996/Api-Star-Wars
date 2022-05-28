@@ -1,9 +1,6 @@
-import { useContext, useEffect, useState } from 'react'
-import { AppContext } from '../components/Context'
+import { useEffect, useState } from 'react'
 
 export const useFetch = (url) => {
-  // const { fetchData, setFetchData, isPending, setIsPending } =
-  //   useContext(AppContext)
   const [fetchData, setFetchData] = useState(null)
   const [isPending, setIsPending] = useState(true)
   useEffect(() => {
