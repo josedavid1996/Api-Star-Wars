@@ -5,14 +5,8 @@ import { AppContext } from '../Context'
 export const Header = () => {
   // CONTEXT
 
-  const {
-    setSearchDataValue,
-    isActiveSearch,
-    setIsActiveSearch,
-    searchValue,
-    setSearchValue,
-    setIsPendingSearch
-  } = useContext(AppContext)
+  const { isActiveSearch, setIsActiveSearch, searchValue, setSearchValue } =
+    useContext(AppContext)
 
   const searchToggle = () => {
     isActiveSearch === 'header__search'
@@ -21,47 +15,26 @@ export const Header = () => {
   }
 
   const onValueChange = (e) => {
-    setSearchValue(e.target.value)
-  }
-  const handlesubmit = async (e) => {
-    e.preventDefault()
     if (searchValue.length === 0) {
-      alert('Tienes que poner un nombre de anime')
-      return
+      setSearchValue(e.target.value)
     }
-    try {
-      const resp = await fetch(
-        `https://api.jikan.moe/v4/anime?q=${searchValue}&sfw`
-      )
-      const data = await resp.json()
-      setSearchDataValue(data)
-      setIsPendingSearch(false)
-      setSearchValue('')
-      setIsActiveSearch('header__search')
-    } catch (error) {
-      console.error('Ocurrio un error')
-    }
-  }
-  const resetHome = () => {
-    setSearchDataValue(null)
-    setIsPendingSearch(true)
   }
 
   return (
     <>
       <div className="container__header">
         <header className="header">
-          <figure className="header__logo" onClick={resetHome}>
+          <figure className="header__logo">
             <img src={logo} alt="logo" />
           </figure>
-          <form onSubmit={handlesubmit} className={isActiveSearch}>
+          <form className={isActiveSearch}>
             <div className="search__group">
               <input
                 type="text"
                 name="search"
                 placeholder="Buscar anime..."
                 onChange={onValueChange}
-                value={searchValue}
+                // value={searchValue}
                 autoComplete="off"
               />
               <i className="fa-solid fa-magnifying-glass "></i>

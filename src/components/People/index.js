@@ -1,18 +1,37 @@
+import { useContext, useState } from 'react'
 import { useFetch } from '../../hook/UseFetch'
+import { AppContext } from '../Context'
 import { Loader } from '../Loader'
 import { Person } from './Person'
 
 export const People = () => {
-  const { fetchData, isPending } = useFetch('https://swapi.dev/api/people')
-  console.log(fetchData && fetchData.results)
+  const { onValueChange, searchValue, setSearchValue } = useContext(AppContext)
+
+  const [pagination, setPagination] = useState(1)
+
+  const { fetchData, isPending } = useFetch(
+    `https://swapi.dev/api/people?page=${pagination}`
+  )
+
+  const previPagination = () => {
+    if (pagination <= 1) return
+    setPagination(pagination - 1)
+  }
+  const nextPagination = () => {
+    if (pagination >= 9) return
+    setPagination(pagination + 1)
+  }
   return (
-    <div className="container">
-      <section className="capitulos">
-        <h1>Capitulos Recientes</h1>
-        {/* <div className="grid">
-          {isPending ? <Loader /> : <Person fetchData={fetchData} />}
-        </div> */}
-      </section>
-    </div>
+    <section className="people">
+      {isPending ? (
+        <Loader />
+      ) : (
+        <Person
+          fetchData={fetchData && fetchData.results}
+          previPagination={previPagination}
+          nextPagination={nextPagination}
+        />
+      )}
+    </section>
   )
 }

@@ -267,5 +267,73 @@ figure {
     opacity: 0;
   }
 }
+.people {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.seccion__table {
+  overflow-x: auto;
+}
+.seccion__table h1 {
+  text-align: center;
+  font-weight: 600;
+}
+
+.tabla {
+  min-width: 34.3rem;
+  border-collapse: collapse;
+  border: 1px solid #ffe81f;
+}
+.tabla thead {
+  color: #000;
+  background-color: #ffe81f;
+}
+.tabla thead tr th {
+  padding: 0.5rem;
+  border-spacing: 0.5rem;
+  text-align: center;
+}
+
+table,
+td {
+  padding: 0.5rem;
+  border-spacing: 0.5rem;
+  text-align: center;
+  border: 1px solid #ffe81f;
+}
+
+.group__btns {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.btn {
+  background-color: #ffe81f;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #000;
+  border: 1px solid #ffe81f;
+  border-radius: 0.625rem;
+  font-size: 1rem;
+  padding: 0.3125rem 1.875rem;
+  margin: 0 0.9375rem;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+@media screen and (min-width: 37.5rem) {
+  .btn {
+    padding: 0.5625rem 2.3125rem;
+    font-size: 1.25rem;
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
