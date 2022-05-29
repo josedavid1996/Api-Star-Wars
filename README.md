@@ -10,7 +10,7 @@ En la parte del header hay un buscador que filtra los personajes por el nombre y
 <br>
 2. La aplicación está compuesta con una instalación básica de Create-React-App todo está configurado para correr con un solo comando
 
-####npm run dev
+<b>npm run dev</b>
 
 La aplicacion se encuentra en: http://localhost:3000/ y se ve de la siguiente forma:
 
