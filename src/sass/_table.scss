@@ -13,7 +13,7 @@
 .tabla {
   min-width: 34.3rem;
   border-collapse: collapse;
-  border: 1px solid $bg-secundary;
+  border: 0.0625rem solid $bg-secundary;
   thead {
     color: $bg-primary;
     background-color: $bg-secundary;
@@ -39,5 +39,10 @@ td {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 2rem;
+  margin: 2rem 0;
+}
+@media screen and(min-width:35rem) {
+  .seccion__table {
+    overflow-x: hidden;
+  }
 }

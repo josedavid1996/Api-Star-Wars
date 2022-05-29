@@ -5,7 +5,7 @@ import { AppContext } from '../Context'
 export const Header = () => {
   // CONTEXT
 
-  const { isActiveSearch, setIsActiveSearch, searchValue, setSearchValue } =
+  const { isActiveSearch, setIsActiveSearch, setSearchValue, searchValue } =
     useContext(AppContext)
 
   const searchToggle = () => {
@@ -30,9 +30,9 @@ export const Header = () => {
               <input
                 type="text"
                 name="search"
-                placeholder="Buscar anime..."
+                placeholder="search by name or by height..."
                 onChange={onValueChange}
-                // value={searchValue}
+                value={searchValue}
                 autoComplete="off"
               />
               <i className="fa-solid fa-magnifying-glass "></i>

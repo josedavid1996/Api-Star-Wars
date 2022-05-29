@@ -7,7 +7,7 @@
 }
 .header {
   height: 3.6775rem;
-  max-width: 1200px;
+  max-width: 75rem;
   margin: 0 auto;
   background-color: $bg-header;
   display: flex;
@@ -27,7 +27,7 @@
   width: 100%;
   background-color: $bg-header;
   padding: 1rem;
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 300;
   display: flex;
   transition: transform 1s ease;
@@ -43,7 +43,7 @@
 .search__group {
   display: flex;
   align-items: center;
-  border: 2px solid $bg-secundary;
+  border: 0.125rem solid $bg-secundary;
   border-radius: 0.625rem;
   padding: 0.375rem 0.75rem 0.375rem 1rem;
   width: 100%;
@@ -78,7 +78,7 @@
   .header__search {
     position: static;
     height: auto;
-    width: auto;
+    width: 17.25rem;
     margin-right: 0;
     padding: 0;
     transform: translateX(0);
@@ -90,10 +90,13 @@
     display: none;
   }
 }
-@media screen and(min-width:1400px) {
+@media screen and(min-width:87.5rem) {
   .header {
     height: 5.51rem;
     padding: 0.5rem 3rem;
+  }
+  .header__search {
+    width: 20.25rem;
   }
   .header__logo {
     width: 9.375rem;
