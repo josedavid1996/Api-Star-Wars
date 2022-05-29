@@ -4,16 +4,16 @@ import { AppContext } from '../Context'
 
 export const Header = () => {
   // CONTEXT
-
   const { isActiveSearch, setIsActiveSearch, setSearchValue, searchValue } =
     useContext(AppContext)
 
+  // FUNCION PARA MOSTRAR Y OCULTAR EL INPUT DEL SEARCH
   const searchToggle = () => {
     isActiveSearch === 'header__search'
       ? setIsActiveSearch('header__search is-active-search')
       : setIsActiveSearch('header__search')
   }
-
+  // FUNCION PARA OBTENER EL VALOR DEL INPUT
   const onValueChange = (e) => {
     setSearchValue(e.target.value)
   }

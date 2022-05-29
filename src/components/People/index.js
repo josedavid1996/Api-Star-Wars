@@ -8,14 +8,23 @@ import { Person } from './Person'
 
 export const People = () => {
   const [pagination, setPagination] = useState(1)
+  // ESTADO PARA CONTROLAR EL TEXTO DEL MODAL
   const [dataModal, setDataModal] = useState(null)
+
+  // VARIABLE PARA REDERIZAR LOS DATOS
   const [fetchData, isPending, setFetchData] = useFetch(
     `https://swapi.dev/api/people?page=${pagination}`
   )
+
+  // VARIABLE PARA TENER UNA COPIA DE LOS DATOS Y PODERLOS FILTRAR
   const [person] = useFetch(`https://swapi.dev/api/people?page=${pagination}`)
 
+  // VARIABLE DEL VALOR DEL INPUT
   const { searchValue } = useContext(AppContext)
+
   const [isOpen, openModal, closeModal] = useModal(false)
+
+  //FUNCION PARA FILTRAR LOS DATOS
   const dataFiltro = (input) => {
     const filtro =
       person &&
@@ -24,8 +33,9 @@ export const People = () => {
           item.name.toLocaleLowerCase().includes(input.toLocaleLowerCase()) ||
           item.height.toString().includes(input.toString())
       )
-    !filtro ? <h1>No hay </h1> : setFetchData({ results: [...filtro] })
+    !filtro ? <h1>No results </h1> : setFetchData({ results: [...filtro] })
   }
+  // EFECTO PARA FILTRAR LOS DATOS SI EL VALOR DEL INPUT CAMBIA
   useEffect(() => {
     dataFiltro(searchValue)
   }, [searchValue])
@@ -38,6 +48,8 @@ export const People = () => {
     if (pagination >= 9) return
     setPagination(pagination + 1)
   }
+
+  //FUNCION PARA FILTRAR LOS DATOS DEL MODAL Y MOSTAR EL MODAL
   const getValueModal = (e) => {
     const filtroDataModal = fetchData.results.filter(
       (item) => item.name === e.target.id
@@ -63,7 +75,7 @@ export const People = () => {
         <Modal isOpen={isOpen} closeModal={closeModal}>
           {dataModal.map((person) => {
             return (
-              <>
+              <div key={person.name}>
                 <h2>{person.name}</h2>
                 <div className="group__data">
                   <p>
@@ -89,7 +101,7 @@ export const People = () => {
                     {person.gender}
                   </p>
                 </div>
-              </>
+              </div>
             )
           })}
         </Modal>

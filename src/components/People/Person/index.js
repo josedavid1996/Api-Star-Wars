@@ -24,23 +24,20 @@ export const Person = ({
           {fetchData &&
             fetchData.map((person) => {
               return (
-                <>
-                  <tr className="contenido__tabla" key={person.name}>
-                    <td>{person.name}</td>
-                    <td>{person.height}</td>
-                    <td>{person.mass}</td>
-                    <td>{person.hair_color}</td>
-                    <td>{person.birth_year}</td>
-                    <td>
-                      <i
-                        key={person.name}
-                        id={person.name}
-                        onClick={getValueModal}
-                        className="fa-solid fa-plus"
-                      ></i>
-                    </td>
-                  </tr>
-                </>
+                <tr className="contenido__tabla" key={person.name}>
+                  <td>{person.name}</td>
+                  <td>{person.height}</td>
+                  <td>{person.mass}</td>
+                  <td>{person.hair_color}</td>
+                  <td>{person.birth_year}</td>
+                  <td>
+                    <i
+                      id={person.name}
+                      onClick={getValueModal}
+                      className="fa-solid fa-plus"
+                    ></i>
+                  </td>
+                </tr>
               )
             })}
         </tbody>
