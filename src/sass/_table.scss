@@ -10,6 +10,11 @@
     font-weight: 600;
   }
 }
+.container__tabla {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .tabla {
   min-width: 34.3rem;
   border-collapse: collapse;
