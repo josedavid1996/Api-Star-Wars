@@ -17,7 +17,7 @@ export const Person = ({
             <th>Mass</th>
             <th>Hair color</th>
             <th>Birth year</th>
-            <th>Mas info</th>
+            <th>Plus info</th>
           </tr>
         </thead>
         <tbody>
@@ -44,10 +44,10 @@ export const Person = ({
       </table>
       <div className="group__btns">
         <button className="btn" onClick={previPagination}>
-          Anterior
+          Previous
         </button>
         <button className="btn" onClick={nextPagination}>
-          Siguiente
+          Next
         </button>
       </div>
     </div>
